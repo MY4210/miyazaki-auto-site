@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>日産 フェアレディZ - 宮﨑自動車商會</title>
+    <meta name="description" content="昭和51年式 日産フェアレディZ。低走行57,400km、ワタナベホイール、ツインキャブ、修復歴なし。¥5,950,000">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .detail-hero {
+            background: linear-gradient(135deg, var(--color-accent) 0%, #2a4a7c 100%);
+            padding: 40px 0 0;
+            color: var(--color-white);
+        }
+        .breadcrumb {
+            font-size: 13px;
+            opacity: 0.8;
+            margin-bottom: 20px;
+        }
+        .breadcrumb a { color: var(--color-white); text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+        .detail-hero-title {
+            font-size: 42px;
+            font-family: var(--font-serif);
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        .detail-hero-sub {
+            font-size: 16px;
+            opacity: 0.85;
+            margin-bottom: 30px;
+        }
+        .detail-main {
+            background: var(--color-base);
+            padding: 60px 0;
+        }
+        .detail-grid {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 40px;
+            align-items: start;
+        }
+        /* Gallery */
+        .gallery-main {
+            background: #000;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            margin-bottom: 15px;
+            aspect-ratio: 4/3;
+        }
+        .gallery-main img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .gallery-thumbs {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 8px;
+        }
+        .gallery-thumb {
+            aspect-ratio: 4/3;
+            border-radius: 4px;
+            overflow: hidden;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: border-color 0.2s;
+        }
+        .gallery-thumb.active { border-color: var(--color-accent); }
+        .gallery-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        /* Sticky sidebar */
+        .detail-sidebar {
+            position: sticky;
+            top: 80px;
+        }
+        .price-card {
+            background: var(--color-white);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--shadow-md);
+            margin-bottom: 20px;
+        }
+        .price-badge {
+            display: inline-block;
+            background: var(--color-gold);
+            color: var(--color-white);
+            font-size: 12px;
+            font-weight: 700;
+            padding: 4px 14px;
+            border-radius: 20px;
+            margin-bottom: 15px;
+        }
+        .price-main {
+            font-size: 44px;
+            font-weight: 700;
+            color: var(--color-accent);
+            margin-bottom: 5px;
+            line-height: 1;
+        }
+        .price-note {
+            font-size: 12px;
+            color: var(--color-sub);
+            margin-bottom: 20px;
+        }
+        .quick-specs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 25px;
+            padding: 20px;
+            background: var(--color-base);
+            border-radius: var(--border-radius);
+        }
+        .qs-item { display: flex; flex-direction: column; }
+        .qs-label { font-size: 11px; color: var(--color-sub); margin-bottom: 3px; }
+        .qs-value { font-size: 15px; font-weight: 600; color: var(--color-text); }
+        .contact-card {
+            background: var(--color-white);
+            border-radius: var(--border-radius);
+            padding: 25px;
+            box-shadow: var(--shadow-sm);
+            text-align: center;
+        }
+        .contact-card h4 { font-size: 16px; margin-bottom: 15px; color: var(--color-text); }
+        .contact-card .btn { display: block; margin-bottom: 10px; }
+        /* Detail sections */
+        .detail-section {
+            background: var(--color-white);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow-sm);
+        }
+        .detail-section h3 {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--color-text);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--color-accent);
+            font-family: var(--font-serif);
+        }
+        .spec-table { width: 100%; border-collapse: collapse; }
+        .spec-table tr { border-bottom: 1px solid var(--color-border); }
+        .spec-table td { padding: 12px 0; font-size: 14px; }
+        .spec-table td:first-child { color: var(--color-sub); width: 120px; }
+        .spec-table td:last-child { font-weight: 500; color: var(--color-text); }
+        .highlight-list { list-style: none; }
+        .highlight-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid var(--color-border);
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .highlight-list li:last-child { border-bottom: none; }
+        @media (max-width: 768px) {
+            .detail-grid { grid-template-columns: 1fr; }
+            .detail-sidebar { position: static; }
+            .detail-hero-title { font-size: 28px; }
+            .gallery-thumbs { grid-template-columns: repeat(4, 1fr); }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-top">
+            <div class="container">
+                <div class="header-content">
+                    <div class="logo-section">
+                        <img src="images/logo.jpg" alt="宮﨑自動車商會ロゴ" class="logo-image" style="width:60px;height:60px;object-fit:contain;">
+                        <div class="company-name">
+                            <h1>宮﨑自動車商會</h1>
+                            <p class="tagline">良質な中古車をお届けします</p>
+                        </div>
+                    </div>
+                    <div class="header-contact">
+                        <div class="phone">
+                            <span class="phone-icon">📞</span>
+                            <a href="tel:0944-87-2465">0944-87-2465</a>
+                        </div>
+                        <div class="hours">営業時間：9:00〜17:00 / 定休日：土日祝</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <nav class="nav">
+            <div class="container">
+                <ul class="nav-list">
+                    <li><a href="index.html">ホーム</a></li>
+                    <li><a href="cars.html" class="active">在庫車両</a></li>
+                    <li><a href="sold.html">販売実績</a></li>
+                    
+                    <li><a href="contact.html">お問い合わせ</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div class="detail-hero">
+        <div class="container">
+            <p class="breadcrumb">
+                <a href="index.html">ホーム</a> &rsaquo;
+                <a href="cars.html">在庫車両</a> &rsaquo;
+                日産 フェアレディZ
+            </p>
+            <h2 class="detail-hero-title">日産 フェアレディZ</h2>
+            <p class="detail-hero-sub">S51年式（1976年）｜クラシックカー / 旧車</p>
+        </div>
+    </div>
+
+    <section class="detail-main">
+        <div class="container">
+            <div class="detail-grid">
+                <!-- Left: Gallery + Details -->
+                <div>
+                    <!-- Gallery -->
+                    <div class="gallery-main">
+                        <img id="mainImg" src="images/car1/DSC00301.JPG" alt="日産フェアレディZ">
+                    </div>
+                    <div class="gallery-thumbs">
+                        <div class="gallery-thumb active" onclick="changeImg(this, 'images/car1/DSC00301.JPG')">
+                            <img src="images/car1/DSC00301.JPG" alt="">
+                        </div>
+                        <div class="gallery-thumb" onclick="changeImg(this, 'images/car1/DSC00302.JPG')">
+                            <img src="images/car1/DSC00302.JPG" alt="">
+                        </div>
+                        <div class="gallery-thumb" onclick="changeImg(this, 'images/car1/DSC00303.JPG')">
+                            <img src="images/car1/DSC00303.JPG" alt="">
+                        </div>
+                        <div class="gallery-thumb" onclick="changeImg(this, 'images/car1/DSC00304.JPG')">
+                            <img src="images/car1/DSC00304.JPG" alt="">
+                        </div>
+                        <div class="gallery-thumb" onclick="changeImg(this, 'images/car1/DSC00305.JPG')">
+                            <img src="images/car1/DSC00305.JPG" alt="">
+                        </div>
+                        <div class="gallery-thumb" onclick="changeImg(this, 'images/car1/DSC00309.JPG')">
+                            <img src="images/car1/DSC00309.JPG" alt="">
+                        </div>
+                        <div class="gallery-thumb" onclick="changeImg(this, 'images/car1/DSC00312.JPG')">
+                            <img src="images/car1/DSC00312.JPG" alt="">
+                        </div>
+                        <div class="gallery-thumb" onclick="changeImg(this, 'images/car1/DSC00317.JPG')">
+                            <img src="images/car1/DSC00317.JPG" alt="">
+                        </div>
+                        <div class="gallery-thumb" onclick="changeImg(this, 'images/car1/DSC00318.JPG')">
+                            <img src="images/car1/DSC00318.JPG" alt="">
+                        </div>
+                        <div class="gallery-thumb" onclick="changeImg(this, 'images/car1/DSC00322.JPG')">
+                            <img src="images/car1/DSC00322.JPG" alt="">
+                        </div>
+                        <div class="gallery-thumb" onclick="changeImg(this, 'images/car1/DSC00323.JPG')">
+                            <img src="images/car1/DSC00323.JPG" alt="">
+                        </div>
+                    </div>
+
+                    <!-- Specs -->
+                    <div class="detail-section" style="margin-top:30px;">
+                        <h3>車両スペック</h3>
+                        <table class="spec-table">
+                            <tr><td>メーカー</td><td>日産</td></tr>
+                            <tr><td>車種</td><td>フェアレディZ</td></tr>
+                            <tr><td>年式</td><td>昭和51年（1976年）</td></tr>
+                            <tr><td>走行距離</td><td>57,400km</td></tr>
+                            <tr><td>排気量</td><td>2,000cc</td></tr>
+                            <tr><td>ミッション</td><td>MT（マニュアル）</td></tr>
+                            <tr><td>車検</td><td>令和9年4月</td></tr>
+                            <tr><td>修復歴</td><td>なし</td></tr>
+                            <tr><td>色</td><td>シルバー</td></tr>
+                        </table>
+                    </div>
+
+                    <!-- Highlights -->
+                    <div class="detail-section">
+                        <h3>アピールポイント</h3>
+                        <ul class="highlight-list">
+                            <li>✨ 低走行で状態良好（57,400km）</li>
+                            <li>✨ ワタナベアルミホイール装着</li>
+                            <li>✨ ツインキャブレター仕様</li>
+                            <li>✨ ロールバー装備</li>
+                            <li>✨ 修復歴なし</li>
+                            <li>✨ 車検令和9年4月まで取得済み</li>
+                        </ul>
+                    </div>
+
+                    <!-- Comment -->
+                    <div class="detail-section">
+                        <h3>担当者コメント</h3>
+                        <p style="font-size:15px;line-height:1.9;color:var(--color-text);">
+                            昭和51年式の希少なフェアレディZ（S130系）です。走行57,400kmと旧車としては非常に低走行で、ボディ・内装ともに状態良好です。ワタナベアルミホイールやツインキャブレターなど、当時のチューニングパーツがそのまま残っており、旧車ファンにはたまらない1台です。車検も令和9年4月まで取得済みですので、すぐにお乗りいただけます。お気軽にお問い合わせください。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Right: Sidebar -->
+                <div class="detail-sidebar">
+                    <div class="price-card">
+                        <span class="price-badge">CLASSIC CAR</span>
+                        <div class="price-main">¥5,950,000</div>
+                        <div class="price-note">税込表示 / 諸費用別途</div>
+                        <div class="quick-specs">
+                            <div class="qs-item">
+                                <span class="qs-label">走行距離</span>
+                                <span class="qs-value">57,400km</span>
+                            </div>
+                            <div class="qs-item">
+                                <span class="qs-label">年式</span>
+                                <span class="qs-value">S51年（1976年）</span>
+                            </div>
+                            <div class="qs-item">
+                                <span class="qs-label">車検</span>
+                                <span class="qs-value">令和9年4月</span>
+                            </div>
+                            <div class="qs-item">
+                                <span class="qs-label">排気量</span>
+                                <span class="qs-value">2,000cc</span>
+                            </div>
+                        </div>
+                        <a href="tel:0944-87-2465" class="btn btn-primary btn-large" style="display:block;text-align:center;margin-bottom:12px;">
+                            📞 電話で問い合わせ
+                        </a>
+                        <a href="contact.html" class="btn btn-secondary" style="display:block;text-align:center;">
+                            ✉️ メールで問い合わせ
+                        </a>
+                    </div>
+
+                    <div class="contact-card">
+                        <h4>📍 宮﨑自動車商會</h4>
+                        <p style="font-size:13px;color:var(--color-sub);margin-bottom:10px;">〒831-0015<br>福岡県大川市本木室802-1</p>
+                        <p style="font-size:13px;color:var(--color-sub);">営業時間：9:00〜17:00<br>定休日：土日祝</p>
+                    </div>
+
+                    <div style="margin-top:15px;">
+                        <a href="cars.html" class="btn btn-outline" style="display:block;text-align:center;">← 在庫一覧に戻る</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>宮﨑自動車商會</h3>
+                    <p>良質な中古車をお届けします</p>
+                </div>
+                <div class="footer-section">
+                    <h4>営業時間</h4>
+                    <p>9:00〜17:00</p>
+                    <p>定休日：土日祝</p>
+                </div>
+                <div class="footer-section">
+                    <h4>お問い合わせ</h4>
+                    <p>📞 0944-87-2465</p>
+                    <p>✉️ <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="c8a5a1b1a9b2a9a3a1e6b2a9a1a5a7a3bdfafcfefd88afa5a9a1a4e6aba7a5">[email&#160;protected]</a></p>
+                </div>
+                <div class="footer-section">
+                    <h4>所在地</h4>
+                    <p>〒831-0015<br>福岡県大川市本木室802-1</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 宮﨑自動車商會 All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script data-cfasync="false" s

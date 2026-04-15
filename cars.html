@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>在庫車両一覧 - 宮﨑自動車商會</title>
+    <meta name="description" content="宮﨑自動車商會の在庫車両一覧。クラシックカーから一般中古車まで5台掲載中。福岡県大川市。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .car-image img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .logo-image {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+        }
+        .page-hero {
+            background: linear-gradient(135deg, var(--color-accent) 0%, #2a4a7c 100%);
+            color: var(--color-white);
+            padding: 60px 0;
+            text-align: center;
+        }
+        .page-hero h2 {
+            font-size: 42px;
+            font-family: var(--font-serif);
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .page-hero p {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+        .cars-section {
+            padding: 80px 0;
+            background: var(--color-base);
+        }
+        .category-section {
+            margin-bottom: 70px;
+        }
+        .category-title {
+            font-size: 26px;
+            font-weight: 700;
+            color: var(--color-text);
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid var(--color-accent);
+            font-family: var(--font-serif);
+        }
+        .car-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .car-card {
+            background: var(--color-white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s;
+        }
+        .car-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+        .car-image {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+            background: var(--color-light-gray);
+        }
+        .car-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--color-white);
+        }
+        .car-badge.classic { background-color: var(--color-gold); }
+        .car-badge.custom { background-color: #e74c3c; }
+        .car-info {
+            padding: 20px;
+        }
+        .car-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: var(--color-text);
+        }
+        .car-sub {
+            font-size: 13px;
+            color: var(--color-sub);
+            margin-bottom: 10px;
+        }
+        .car-details {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+            font-size: 13px;
+            color: var(--color-sub);
+            flex-wrap: wrap;
+        }
+        .car-price-tag {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--color-accent);
+            margin-bottom: 15px;
+        }
+        .car-price-tag.ask {
+            font-size: 18px;
+            color: var(--color-sub);
+        }
+        .count-badge {
+            display: inline-block;
+            background: var(--color-accent);
+            color: var(--color-white);
+            font-size: 14px;
+            font-weight: 700;
+            padding: 6px 18px;
+            border-radius: 20px;
+            margin-bottom: 50px;
+        }
+        @media (max-width: 768px) {
+            .page-hero h2 { font-size: 28px; }
+            .car-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-top">
+            <div class="container">
+                <div class="header-content">
+                    <div class="logo-section">
+                        <img src="images/logo.jpg" alt="宮﨑自動車商會ロゴ" class="logo-image">
+                        <div class="company-name">
+                            <h1>宮﨑自動車商會</h1>
+                            <p class="tagline">良質な中古車をお届けします</p>
+                        </div>
+                    </div>
+                    <div class="header-contact">
+                        <div class="phone">
+                            <span class="phone-icon">📞</span>
+                            <a href="tel:0944-87-2465">0944-87-2465</a>
+                        </div>
+                        <div class="hours">営業時間：9:00〜17:00 / 定休日：土日祝</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <nav class="nav">
+            <div class="container">
+                <ul class="nav-list">
+                    <li><a href="index.html">ホーム</a></li>
+                    <li><a href="cars.html" class="active">在庫車両</a></li>
+                    <li><a href="sold.html">販売実績</a></li>
+                    
+                    <li><a href="contact.html">お問い合わせ</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div class="page-hero">
+        <div class="container">
+            <h2>📂 在庫車両一覧</h2>
+            <p>現在5台の在庫がございます</p>
+        </div>
+    </div>
+
+    <section class="cars-section">
+        <div class="container">
+            <div style="text-align:center;">
+                <span class="count-badge">全5台掲載中</span>
+            </div>
+
+            <!-- クラシックカー -->
+            <div class="category-section">
+                <h3 class="category-title">🎌 クラシックカー / 旧車</h3>
+                <div class="car-grid">
+                    <div class="car-card">
+                        <div class="car-image">
+                            <img src="images/car1/DSC00301.JPG" alt="日産 フェアレディZ">
+                            <div class="car-badge classic">クラシック</div>
+                        </div>
+                        <div class="car-info">
+                            <h4 class="car-title">日産 フェアレディZ</h4>
+                            <div class="car-details">
+                                <span>📅 1976年（S51年式）</span>
+                                <span>🛣 57,400km</span>
+                            </div>
+                            <div class="car-details">
+                                <span>🔧 2,000cc</span>
+                                <span>⚙️ MT</span>
+                                <span>🔍 修復歴なし</span>
+                            </div>
+                            <div class="car-price-tag">ASK</div>
+                            <a href="car-detail-1.html" class="btn btn-outline" style="display:block;text-align:center;">詳細を見る</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 一般中古車 -->
+            <div class="category-section">
+                <h3 class="category-title">🚗 一般中古車</h3>
+                <div class="car-grid">
+
+                    <div class="car-card">
+                        <div class="car-image">
+                            <img src="images/car2/DSC00067.JPG" alt="トヨタ ハイラックス">
+                        </div>
+                        <div class="car-info">
+                            <h4 class="car-title">トヨタ ハイラックス</h4>
+                            <div class="car-details">
+                                <span>📅 1990年（H2年3月）</span>
+                                <span>🛣 34,207km</span>
+                            </div>
+                            <div class="car-price-tag">ASK</div>
+                            <a href="car-detail-2.html" class="btn btn-outline" style="display:block;text-align:center;">詳細を見る</a>
+                        </div>
+                    </div>
+
+                    <div class="car-card">
+                        <div class="car-image">
+                            <img src="images/car3/DSC00329.JPG" alt="いすゞ ビックホーン">
+                        </div>
+                        <div class="car-info">
+                            <h4 class="car-title">いすゞ ビックホーン</h4>
+                            <div class="car-details">
+                                <span>📅 1999年（H11年11月）</span>
+                                <span>🛣 174,000km</span>
+                            </div>
+                            <div class="car-price-tag">ASK</div>
+                            <a href="car-detail-3.html" class="btn btn-outline" style="display:block;text-align:center;">詳細を見る</a>
+                        </div>
+                    </div>
+
+                    <div class="car-card">
+                        <div class="car-image">
+                            <img src="images/car4/DSC00350.JPG" alt="トヨタ ヴェルファイア">
+                        </div>
+                        <div class="car-info">
+                            <h4 class="car-title">トヨタ ヴェルファイア</h4>
+                            <div class="car-sub">2.4Z プラチナセレクションⅡ</div>
+                            <div class="car-details">
+                                <span>📅 2010年（H22年10月）</span>
+                                <span>🛣 61,000km</span>
+                            </div>
+                            <div class="car-price-tag">ASK</div>
+                            <a href="car-detail-4.html" class="btn btn-outline" style="display:block;text-align:center;">詳細を見る</a>
+                        </div>
+                    </div>
+
+                    <div class="car-card">
+                        <div class="car-image">
+                            <img src="images/car5/DSC00359.JPG" alt="マツダ CX-5">
+                            <div class="car-badge custom">フルカスタム</div>
+                        </div>
+                        <div class="car-info">
+                            <h4 class="car-title">マツダ CX-5</h4>
+                            <div class="car-sub">XD Lパッケージ</div>
+                            <div class="car-details">
+                                <span>📅 2012年（H24年6月）</span>
+                                <span>🛣 95,000km</span>
+                            </div>
+                            <div class="car-price-tag">ASK</div>
+                            <a href="car-detail-5.html" class="btn btn-outline" style="display:block;text-align:center;">詳細を見る</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>お気軽にお問い合わせください</h2>
+                <p>ご来店・お電話・メールにて承っております</p>
+                <div class="cta-buttons">
+                    <a href="tel:0944-87-2465" class="btn btn-primary btn-large">📞 0944-87-2465</a>
+                    <a href="contact.html" class="btn btn-secondary btn-large">✉️ メールで問い合わせ</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>宮﨑自動車商會</h3>
+                    <p>良質な中古車をお届けします</p>
+                </div>
+                <div class="footer-section">
+                    <h4>営業時間</h4>
+                    <p>9:00〜17:00</p>
+                    <p>定休日：土日祝</p>
+                </div>
+                <div class="footer-section">
+                    <h4>お問い合わせ</h4>
+                    <p>📞 0944-87-2465</p>
+                    <p>✉️ <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="c3aeaabaa2b9a2a8aaedb9a2aaaeaca8b6f1f7f5f683a4aea2aaafeda0acae">[email&#160;protected]</a></p>
+                </div>
+                <div class="footer-section">
+                    <h4>所在地</h4>
+                    <p>〒831-0015<b

@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>販売実績 - 宮﨑自動車商會</title>
+    <meta name="description" content="宮﨑自動車商會のこれまでの販売実績。9台の販売実績。福岡県大川市。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .logo-image { width: 60px; height: 60px; object-fit: contain; }
+        .page-hero {
+            background: linear-gradient(135deg, var(--color-accent) 0%, #2a4a7c 100%);
+            color: var(--color-white);
+            padding: 60px 0;
+            text-align: center;
+        }
+        .page-hero h2 { font-size: 42px; font-family: var(--font-serif); font-weight: 700; margin-bottom: 10px; }
+        .page-hero p { font-size: 18px; opacity: 0.9; }
+        .sold-section { padding: 80px 0; background: var(--color-base); }
+        .record-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+            margin-bottom: 70px;
+        }
+        .stat-card {
+            text-align: center;
+            padding: 35px 20px;
+            background: var(--color-white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+            border-top: 4px solid var(--color-accent);
+        }
+        .stat-number { font-size: 40px; font-weight: 700; color: var(--color-accent); margin-bottom: 8px; }
+        .stat-label { font-size: 14px; color: var(--color-sub); }
+        .sold-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        .sold-card {
+            background: var(--color-white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.3s;
+        }
+        .sold-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+        .sold-card-image {
+            height: 180px;
+            background: linear-gradient(135deg, var(--color-light-gray), var(--color-border));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .sold-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            filter: grayscale(40%);
+        }
+        .sold-overlay {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.35);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .sold-stamp {
+            border: 4px solid #fff;
+            color: #fff;
+            font-size: 22px;
+            font-weight: 900;
+            padding: 8px 20px;
+            border-radius: 4px;
+            letter-spacing: 3px;
+            transform: rotate(-10deg);
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+        .sold-no-image {
+            font-size: 60px;
+        }
+        .sold-card-info { padding: 20px; }
+        .sold-card-info h4 { font-size: 17px; font-weight: 700; color: var(--color-text); margin-bottom: 8px; }
+        .sold-card-info .sold-meta {
+            display: flex;
+            gap: 15px;
+            font-size: 13px;
+            color: var(--color-sub);
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+        }
+        .sold-card-info .sold-price {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--color-sub);
+            margin-bottom: 8px;
+        }
+        .sold-card-info p { font-size: 13px; color: var(--color-sub); }
+        .section-title-main {
+            font-size: 28px;
+            font-weight: 700;
+            font-family: var(--font-serif);
+            color: var(--color-text);
+            margin-bottom: 30px;
+            padding-bottom: 12px;
+            border-bottom: 3px solid var(--color-accent);
+        }
+        @media (max-width: 768px) {
+            .page-hero h2 { font-size: 28px; }
+            .sold-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-top">
+            <div class="container">
+                <div class="header-content">
+                    <div class="logo-section">
+                        <img src="images/logo.jpg" alt="宮﨑自動車商會ロゴ" class="logo-image">
+                        <div class="company-name">
+                            <h1>宮﨑自動車商會</h1>
+                            <p class="tagline">良質な中古車をお届けします</p>
+                        </div>
+                    </div>
+                    <div class="header-contact">
+                        <div class="phone">
+                            <span class="phone-icon">📞</span>
+                            <a href="tel:0944-87-2465">0944-87-2465</a>
+                        </div>
+                        <div class="hours">営業時間：9:00〜17:00 / 定休日：土日祝</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <nav class="nav">
+            <div class="container">
+                <ul class="nav-list">
+                    <li><a href="index.html">ホーム</a></li>
+                    <li><a href="cars.html">在庫車両</a></li>
+                    <li><a href="sold.html" class="active">販売実績</a></li>
+                    
+                    <li><a href="contact.html">お問い合わせ</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div class="page-hero">
+        <div class="container">
+            <h2>✅ 販売実績</h2>
+            <p>これまでにご成約いただいたお客様の車両です</p>
+        </div>
+    </div>
+
+    <section class="sold-section">
+        <div class="container">
+
+            <!-- 実績サマリー -->
+            <div class="record-stats">
+                <div class="stat-card">
+                    <div class="stat-number">9台</div>
+                    <div class="stat-label">累計販売実績</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">¥40万〜¥450万</div>
+                    <div class="stat-label">幅広い価格帯に対応</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">お客様満足</div>
+                </div>
+            </div>
+
+            <!-- 販売済み車両一覧 -->
+            <h3 class="section-title-main">販売済み車両</h3>
+            <div class="sold-grid">
+
+                <div class="sold-card">
+                    <div class="sold-card-image">
+                        <img src="images/sold/sord1(ランクル)/DSC00093.JPG" alt="トヨタ ランドクルーザープラド">
+                        <div class="sold-overlay">
+                            <div class="sold-stamp">SOLD OUT</div>
+                        </div>
+                    </div>
+                    <div class="sold-card-info">
+                        <h4>トヨタ ランドクルーザー70</h4>
+                        <p>ご購入ありがとうございました</p>
+                    </div>
+                </div>
+
+                <div class="sold-card">
+                    <div class="sold-card-image">
+                        <img src="images/sold/sord2/IMG_7507.jpeg" alt="光岡 ビュート" onerror="this.style.display='none'">
+                        <div class="sold-overlay">
+                            <div class="sold-stamp">SOLD OUT</div>
+                        </div>
+                    </div>
+                    <div class="sold-card-info">
+                        <h4>光岡 ビュート</h4>
+                        <p>ご購入ありがとうございました</p>
+                    </div>
+                </div>
+
+                <div class="sold-card">
+                    <div class="sold-card-image">
+                        <img src="images/sold/sord3(リョウガ)/IMG_3935.jpeg" alt="光岡 リョウガ">
+                        <div class="sold-overlay">
+                            <div class="sold-stamp">SOLD OUT</div>
+                        </div>
+                    </div>
+                    <div class="sold-card-info">
+                        <h4>光岡 リョウガ</h4>
+                        <p>ご購入ありがとうございました</p>
+                    </div>
+                </div>
+
+                <div class="sold-card">
+                    <div class="sold-card-image">
+                        <img src="images/sold/sord4(ロードスター)/IMG_3967.jpeg" alt="マツダ ロードスター">
+                        <div class="sold-overlay">
+                            <div class="sold-stamp">SOLD OUT</div>
+                        </div>
+                    </div>
+                    <div class="sold-card-info">
+                        <h4>マツダ ロードスター</h4>
+                        <p>ご購入ありがとうございました</p>
+                    </div>
+                </div>
+
+                <div class="sold-card">
+                    <div class="sold-card-image">
+                        <img src="images/sold/sord5(コペン)/DSC00053.JPG" alt="ダイハツ コペン">
+                        <div class="sold-overlay">
+                            <div class="sold-stamp">SOLD OUT</div>
+                        </div>
+                    </div>
+                    <div class="sold-card-info">
+                        <h4>ダイハツ コペン</h4>
+                        <p>ご購入ありがとうございました</p>
+                    </div>
+                </div>
+
+                <div class="sold-card">
+                    <div class="sold-card-image">
+                        <img src="images/sold/sold6(マークXジオ)/IMG_3378.jpeg" alt="トヨタ マークXジオ">
+                        <div class="sold-overlay">
+                            <div class="sold-stamp">SOLD OUT</div>
+                        </div>
+                    </div>
+                    <div class="sold-card-info">
+                        <h4>トヨタ マークXジオ</h4>
+                        <p>ご購入ありがとうございました</p>
+                    </div>
+                </div>
+
+                <div class="sold-card">
+                    <div class="sold-card-image">
+                        <img src="images/sold/sold7(ハリアー)/DSC00324.JPG" alt="トヨタ ハリアー">
+                        <div class="sold-overlay">
+                            <div class="sold-stamp">SOLD OUT</div>
+                        </div>
+                    </div>
+                    <div class="sold-card-info">
+                        <h4>トヨタ ハリアー</h4>
+                        <p>ご購入ありがとうございました</p>
+                    </div>
+                </div>
+
+                <div class="sold-card">
+                    <div class="sold-card-image">
+                        <img src="images/sold/sold8(ハスラー)/DSC00326.JPG" alt="スズキ ハスラー">
+                        <div class="sold-overlay">
+                            <div class="sold-stamp">SOLD OUT</div>
+                        </div>
+                    </div>
+                    <div class="sold-card-info">
+                        <h4>スズキ ハスラー</h4>
+                        <p>ご購入ありがとうございました</p>
+                    </div>
+                </div>
+
+                <div class="sold-card">
+                    <div class="sold-card-image">
+                        <img src="images/sold/sold9(ムラーノ)/IMG_3971.JPG" alt="日産 ムラーノ">
+                        <div class="sold-overlay">
+                            <div class="sold-stamp">SOLD OUT</div>
+                        </div>
+                    </div>
+                    <div class="sold-card-info">
+                        <h4>日産 ムラーノ</h4>
+                        <p>ご購入ありがとうございました</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div style="text-align:center;margin-top:50px;">
+                <p style="font-size:14px;color:var(--color-sub);margin-bottom:20px;">
+                    ※ 販売済み車両の詳細情報はお問い合わせください
+                </p>
+                <a href="contact.html" class="btn btn-primary">お問い合わせはこちら</a>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>お気軽にお問い合わせください</h2>
+                <p>ご来店・お電話・メールにて承っております</p>
+                <div class="cta-buttons">
+                    <a href="tel:0944-87-2465" class="btn btn-primary btn-large">📞 0944-87-2465</a>
+                    <a href="contact.html" class="btn btn-secondary btn-large">✉️ メールで問い合わせ</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>宮﨑自動車商會</h3>
+                    <p>良質な中古車をお届けします</p>
+                </div>
+                <div class="footer-section">
+                    <h4>営業時間</h4>
+                    <p>9:00〜17:00</p>
+                    <p>定休日：土日祝</p>
+                </div>
+                <div class="footer-section">
+                    <h4>お問い合わせ</h4>
+                    <p>📞 0944-87-2465</p>
+                    <p>✉️ <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="dfb2b6a6bea5beb4b6f1a5beb6b2b0b4aaedebe9ea9fb8b2beb6b3f1bcb0b2">[email&#160;protected]</a></p>
+                </div>
+                <div class="footer-section">
+                    <h4>所在地</h4>
+                    <p>〒831-0015<b
