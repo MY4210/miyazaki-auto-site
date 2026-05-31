@@ -1,0 +1,18 @@
+# Mac 標準ファイル（不要）
+.DS_Store
+**/.DS_Store
+
+# 動画ファイル（容量が大きいためGit管理外）
+videos/
+*.mp4
+*.mov
+*.MP4
+*.MOV
+*.avi
+
+# エディタの一時ファイル
+*.swp
+*.swo
+*~
+.vscode/
+.idea/

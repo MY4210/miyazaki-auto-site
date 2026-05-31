@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>宮﨑自動車商會 - 良質な中古車をお届け | 福岡県大川市</title>
-    <meta name="description" content="福岡県大川市の宮﨑自動車商會。オークション直送の良質な中古車を販売。クラシックカーから一般中古車まで幅広く取り扱い。">
+    <title>宮崎自動車商會 - 良質な中古車をお届け | 福岡県大川市</title>
+    <meta name="description" content="福岡県大川市の宮崎自動車商會。オークション直送の良質な中古車を販売。クラシックカーから一般中古車まで幅広く取り扱い。">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <style>
@@ -13,16 +13,86 @@
             height: 200px;
             object-fit: cover;
         }
+        .featured-image {
+            background: #f5f5f5;
+        }
         .featured-image img {
             width: 100%;
             height: 100%;
             min-height: 400px;
-            object-fit: cover;
+            object-fit: contain;
         }
         .logo-image {
             width: 60px;
             height: 60px;
             object-fit: contain;
+        }
+        /* ===== Showcase video（ホーム最上部） ===== */
+        .showcase-video {
+            position: relative;
+            width: 100%;
+            background: #000;
+            overflow: hidden;
+        }
+        .showcase-video video {
+            display: block;
+            width: 100%;
+            height: auto;
+            max-height: 80vh;
+            object-fit: cover;
+            background: #000;
+        }
+        .showcase-video-overlay {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            padding: 40px 20px 30px;
+            background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.35) 60%, rgba(0,0,0,0) 100%);
+            color: #fff;
+            pointer-events: none;
+        }
+        .showcase-video-overlay .container { pointer-events: auto; }
+        .showcase-badge {
+            display: inline-block;
+            background: var(--color-gold, #c9a961);
+            color: #fff;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            padding: 5px 14px;
+            border-radius: 20px;
+            margin-bottom: 12px;
+        }
+        .showcase-title {
+            font-size: 32px;
+            font-family: var(--font-serif);
+            font-weight: 700;
+            margin-bottom: 8px;
+            text-shadow: 1px 2px 6px rgba(0,0,0,0.6);
+        }
+        .showcase-sub {
+            font-size: 15px;
+            opacity: 0.92;
+            margin-bottom: 14px;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+        }
+        .showcase-link {
+            display: inline-block;
+            color: #fff;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(255,255,255,0.6);
+            padding-bottom: 2px;
+            transition: border-color 0.2s;
+        }
+        .showcase-link:hover { border-bottom-color: #fff; }
+        @media (max-width: 768px) {
+            .showcase-video video { max-height: 55vh; }
+            .showcase-title { font-size: 22px; }
+            .showcase-sub { font-size: 13px; }
+            .showcase-video-overlay { padding: 30px 16px 20px; }
         }
     </style>
 </head>
@@ -32,9 +102,9 @@
             <div class="container">
                 <div class="header-content">
                     <div class="logo-section">
-                        <img src="images/logo.jpg" alt="宮﨑自動車商會ロゴ" class="logo-image">
+                        <img src="images/logo.jpg" alt="宮崎自動車商會ロゴ" class="logo-image">
                         <div class="company-name">
-                            <h1>宮﨑自動車商會</h1>
+                            <h1>宮崎自動車商會</h1>
                             <p class="tagline">良質な中古車をお届けします</p>
                         </div>
                     </div>
@@ -55,12 +125,25 @@
                     <li><a href="index.html" class="active">ホーム</a></li>
                     <li><a href="cars.html">在庫車両</a></li>
                     <li><a href="sold.html">販売実績</a></li>
-                    
+                    <li><a href="about.html">会社情報</a></li>
                     <li><a href="contact.html">お問い合わせ</a></li>
                 </ul>
             </div>
         </nav>
     </header>
+
+    <!-- ===== ショーケース（過去取扱車両のご紹介） ===== -->
+    <section class="showcase-video">
+        <img src="images/car1/DSC00303.JPG" alt="宮崎自動車商會で販売した日産フェアレディZ" style="width:100%;height:auto;display:block;">
+        <div class="showcase-video-overlay">
+            <div class="container">
+                <span class="showcase-badge">PAST SHOWCASE</span>
+                <h2 class="showcase-title">宮崎自動車商會</h2>
+                <p class="showcase-sub">クラシックカー・旧車から一般中古車まで、思い出のある一台をお届けしてきました。<br>写真は当店で販売した「日産 フェアレディZ」です。</p>
+                <a href="sold.html" class="showcase-link">▶ 販売実績を見る</a>
+            </div>
+        </div>
+    </section>
 
     <section class="hero">
         <div class="hero-overlay">
@@ -77,91 +160,92 @@
         </div>
     </section>
 
+    <!--
+    ============================================================
+    🏆 特選車両セクション（一時非表示）
+    ============================================================
+    新しい特選車両（希少なクラシックカー等）が入荷したら、
+    下記の <section> ブロックのコメントアウトを外して、
+    画像パス・車名・スペック等を差し替えてください。
+    ============================================================
     <section class="featured-car">
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">🏆 特選車両</h2>
                 <p class="section-subtitle">希少なクラシックカー</p>
             </div>
-            
+
             <div class="featured-card">
                 <div class="featured-image">
-                    <img src="images/car1/DSC00301.jpg" alt="日産フェアレディZ">
+                    <img src="images/【車両画像パス】" alt="【車両名】">
                     <div class="featured-badge">CLASSIC CAR</div>
                 </div>
                 <div class="featured-info">
                     <div class="car-category">クラシックカー / 旧車</div>
-                    <h3 class="car-name">日産 フェアレディZ</h3>
-                    <div class="car-year">S51年式（1976年）</div>
+                    <h3 class="car-name">【車両名】</h3>
+                    <div class="car-year">【年式】</div>
                     <div class="car-price">ASK</div>
-                    
+
                     <div class="car-specs">
                         <div class="spec-item">
                             <span class="spec-label">走行距離</span>
-                            <span class="spec-value">57,400km</span>
+                            <span class="spec-value">【走行距離】</span>
                         </div>
                         <div class="spec-item">
                             <span class="spec-label">車検</span>
-                            <span class="spec-value">令和9年4月</span>
+                            <span class="spec-value">【車検】</span>
                         </div>
                         <div class="spec-item">
                             <span class="spec-label">排気量</span>
-                            <span class="spec-value">2,000cc</span>
+                            <span class="spec-value">【排気量】</span>
                         </div>
                         <div class="spec-item">
                             <span class="spec-label">ミッション</span>
-                            <span class="spec-value">MT</span>
+                            <span class="spec-value">【MT/AT】</span>
                         </div>
                     </div>
-                    
+
                     <div class="car-highlights">
                         <h4>アピールポイント</h4>
                         <ul>
-                            <li>✨ 低走行で状態良好</li>
-                            <li>✨ ワタナベアルミホイール</li>
-                            <li>✨ ツインキャブレター</li>
-                            <li>✨ ロールバー装備</li>
-                            <li>✨ 修復歴なし</li>
+                            <li>✨ 【ポイント1】</li>
+                            <li>✨ 【ポイント2】</li>
+                            <li>✨ 【ポイント3】</li>
                         </ul>
                     </div>
-                    
-                    <a href="car-detail-1.html" class="btn btn-primary btn-large">詳細を見る</a>
+
+                    <a href="【詳細ページのパス】" class="btn btn-primary btn-large">詳細を見る</a>
                 </div>
             </div>
         </div>
     </section>
+    ============================================================
+    -->
+
 
     <section class="inventory">
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">📂 在庫車両</h2>
-                <p class="section-subtitle">現在5台の在庫がございます</p>
             </div>
 
             <div class="category-section">
-                <h3 class="category-title">🎌 クラシックカー / 旧車</h3>
                 <div class="car-grid">
                     <div class="car-card">
                         <div class="car-image">
-                            <img src="images/car1/DSC00301.jpg" alt="フェアレディZ">
-                            <div class="car-badge classic">クラシック</div>
+                            <img src="images/car7/IMG_5001.jpeg" alt="光岡 ビュート なでしこ">
                         </div>
                         <div class="car-info">
-                            <h4 class="car-title">日産 フェアレディZ</h4>
+                            <h4 class="car-title">光岡 ビュート</h4>
                             <div class="car-details">
-                                <span>1976年（S51年式）</span>
-                                <span>57,400km</span>
+                                <span>2020年（R2年8月）</span>
+                                <span>52,975km</span>
                             </div>
                             <div class="car-price-tag">ASK</div>
-                            <a href="car-detail-1.html" class="btn btn-outline">詳細を見る</a>
+                            <a href="car-detail-7.html" class="btn btn-outline">詳細を見る</a>
                         </div>
                     </div>
-                </div>
-            </div>
 
-            <div class="category-section">
-                <h3 class="category-title">🚗 一般中古車</h3>
-                <div class="car-grid">
                     <div class="car-card">
                         <div class="car-image">
                             <img src="images/car2/DSC00067.jpg" alt="ハイラックス">
@@ -194,28 +278,10 @@
 
                     <div class="car-card">
                         <div class="car-image">
-                            <img src="images/car4/DSC00350.jpg" alt="ヴェルファイア">
-                        </div>
-                        <div class="car-info">
-                            <h4 class="car-title">トヨタ ヴェルファイア</h4>
-                            <div class="car-sub">2.4Z プラチナセレクションⅡ</div>
-                            <div class="car-details">
-                                <span>2010年（H22年10月）</span>
-                                <span>61,000km</span>
-                            </div>
-                            <div class="car-price-tag">ASK</div>
-                            <a href="car-detail-4.html" class="btn btn-outline">詳細を見る</a>
-                        </div>
-                    </div>
-
-                    <div class="car-card">
-                        <div class="car-image">
                             <img src="images/car5/DSC00359.jpg" alt="CX-5">
-                            <div class="car-badge custom">フルカスタム</div>
                         </div>
                         <div class="car-info">
                             <h4 class="car-title">マツダ CX-5</h4>
-                            <div class="car-sub">XD Lパッケージ</div>
                             <div class="car-details">
                                 <span>2012年（H24年6月）</span>
                                 <span>95,000km</span>
@@ -224,6 +290,7 @@
                             <a href="car-detail-5.html" class="btn btn-outline">詳細を見る</a>
                         </div>
                     </div>
+
                 </div>
             </div>
 
@@ -237,16 +304,11 @@
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">✅ 販売実績</h2>
-                <p class="section-subtitle">これまでに9台の販売実績がございます</p>
             </div>
 
             <div class="record-stats">
                 <div class="stat-card">
-                    <div class="stat-number">9台</div>
-                    <div class="stat-label">販売実績</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">¥40万〜¥450万</div>
+                    <div class="stat-number">¥30万〜¥1,000万</div>
                     <div class="stat-label">幅広い価格帯に対応</div>
                 </div>
                 <div class="stat-card">
@@ -258,17 +320,17 @@
             <div class="sold-preview">
                 <div class="sold-card">
                     <div class="sold-badge">SOLD OUT</div>
-                    <h4>トヨタ ハリアー（2023年）</h4>
+                    <h4>日産 フェアレディZ</h4>
                     <p>ご購入ありがとうございました</p>
                 </div>
                 <div class="sold-card">
                     <div class="sold-badge">SOLD OUT</div>
-                    <h4>スズキ ハスラー（2024年）</h4>
+                    <h4>トヨタ ランドクルーザー70</h4>
                     <p>ご購入ありがとうございました</p>
                 </div>
                 <div class="sold-card">
                     <div class="sold-badge">SOLD OUT</div>
-                    <h4>光岡 ビュート（2014年）</h4>
+                    <h4>マツダ ロードスター</h4>
                     <p>ご購入ありがとうございました</p>
                 </div>
             </div>
@@ -327,7 +389,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>宮﨑自動車商會</h3>
+                    <h3>宮崎自動車商會</h3>
                     <p>良質な中古車をお届けします</p>
                 </div>
                 <div class="footer-section">
@@ -338,7 +400,7 @@
                 <div class="footer-section">
                     <h4>お問い合わせ</h4>
                     <p>📞 0944-87-2465</p>
-                    <p>✉️ <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="ee8387978f948f8587c0948f878381859bdcdad8dbae89838f8782c08d8183">[email&#160;protected]</a></p>
+                    <p>✉️ miyazaki.zaimoku2465@gmail.com</p>
                 </div>
                 <div class="footer-section">
                     <h4>所在地</h4>

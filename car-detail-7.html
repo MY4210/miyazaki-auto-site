@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>光岡 ビュート なでしこ - 宮崎自動車商會</title>
+    <meta name="description" content="2020年式 光岡 ビュート なでしこ。走行52,975km。レッド・クラシックレトロデザイン。車検令和9年8月まで。福岡県大川市の宮崎自動車商會。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .detail-hero { background: linear-gradient(135deg, var(--color-accent) 0%, #2a4a7c 100%); padding: 40px 0 0; color: var(--color-white); }
+        .breadcrumb { font-size: 13px; opacity: 0.8; margin-bottom: 20px; }
+        .breadcrumb a { color: var(--color-white); text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+        .detail-hero-title { font-size: 42px; font-family: var(--font-serif); font-weight: 700; margin-bottom: 5px; }
+        .detail-hero-sub { font-size: 16px; opacity: 0.85; margin-bottom: 30px; }
+        .detail-main { background: var(--color-base); padding: 60px 0; }
+        .detail-grid { display: grid; grid-template-columns: 1fr 400px; gap: 40px; align-items: start; }
+        .gallery-main { background: #000; border-radius: var(--border-radius); overflow: hidden; margin-bottom: 15px; aspect-ratio: 4/3; }
+        .gallery-main img { width: 100%; height: 100%; object-fit: contain; background: #f5f5f5; display: block; }
+        .gallery-thumbs { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
+        .gallery-thumb { aspect-ratio: 4/3; border-radius: 4px; overflow: hidden; cursor: pointer; border: 2px solid transparent; transition: border-color 0.2s; }
+        .gallery-thumb.active { border-color: var(--color-accent); }
+        .gallery-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .detail-sidebar { position: sticky; top: 80px; }
+        .price-card { background: var(--color-white); border-radius: var(--border-radius); padding: 30px; box-shadow: var(--shadow-md); margin-bottom: 20px; }
+        .price-badge { display: inline-block; background: var(--color-gold); color: var(--color-white); font-size: 12px; font-weight: 700; padding: 4px 14px; border-radius: 20px; margin-bottom: 15px; }
+        .price-main { font-size: 44px; font-weight: 700; color: var(--color-accent); margin-bottom: 5px; line-height: 1; }
+        .price-note { font-size: 12px; color: var(--color-sub); margin-bottom: 20px; }
+        .quick-specs { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 25px; padding: 20px; background: var(--color-base); border-radius: var(--border-radius); }
+        .qs-item { display: flex; flex-direction: column; }
+        .qs-label { font-size: 11px; color: var(--color-sub); margin-bottom: 3px; }
+        .qs-value { font-size: 15px; font-weight: 600; color: var(--color-text); }
+        .contact-card { background: var(--color-white); border-radius: var(--border-radius); padding: 25px; box-shadow: var(--shadow-sm); text-align: center; }
+        .detail-section { background: var(--color-white); border-radius: var(--border-radius); padding: 30px; margin-bottom: 20px; box-shadow: var(--shadow-sm); }
+        .detail-section h3 { font-size: 20px; font-weight: 700; color: var(--color-text); margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid var(--color-accent); font-family: var(--font-serif); }
+        .spec-table { width: 100%; border-collapse: collapse; }
+        .spec-table tr { border-bottom: 1px solid var(--color-border); }
+        .spec-table td { padding: 12px 0; font-size: 14px; }
+        .spec-table td:first-child { color: var(--color-sub); width: 120px; }
+        .spec-table td:last-child { font-weight: 500; color: var(--color-text); }
+        .logo-image { width: 60px; height: 60px; object-fit: contain; }
+        @media (max-width: 768px) { .detail-grid { grid-template-columns: 1fr; } .detail-sidebar { position: static; } .detail-hero-title { font-size: 28px; } .gallery-thumbs { grid-template-columns: repeat(4, 1fr); } }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-top">
+            <div class="container">
+                <div class="header-content">
+                    <div class="logo-section">
+                        <img src="images/logo.jpg" alt="宮崎自動車商會ロゴ" class="logo-image">
+                        <div class="company-name">
+                            <h1>宮崎自動車商會</h1>
+                            <p class="tagline">良質な中古車をお届けします</p>
+                        </div>
+                    </div>
+                    <div class="header-contact">
+                        <div class="phone"><span class="phone-icon">📞</span><a href="tel:0944-87-2465">0944-87-2465</a></div>
+                        <div class="hours">営業時間：9:00〜17:00 / 定休日：土日祝</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <nav class="nav">
+            <div class="container">
+                <ul class="nav-list">
+                    <li><a href="index.html">ホーム</a></li>
+                    <li><a href="cars.html" class="active">在庫車両</a></li>
+                    <li><a href="sold.html">販売実績</a></li>
+                    <li><a href="about.html">会社情報</a></li>
+                    <li><a href="contact.html">お問い合わせ</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div class="detail-hero">
+        <div class="container">
+            <p class="breadcrumb"><a href="index.html">ホーム</a> &rsaquo; <a href="cars.html">在庫車両</a> &rsaquo; 光岡 ビュート</p>
+            <h2 class="detail-hero-title">光岡 ビュート</h2>
+            <p class="detail-hero-sub">R2年式（2020年）｜なでしこ｜走行52,975km</p>
+        </div>
+    </div>
+
+    <section class="detail-main">
+        <div class="container">
+            <div class="detail-grid">
+                <div>
+                    <div class="gallery-main">
+                        <img id="mainImg" src="images/car7/IMG_5001.jpeg" alt="光岡 ビュート なでしこ">
+                    </div>
+                    <div class="gallery-thumbs">
+                        <div class="gallery-thumb active" onclick="changeImg(this, 'images/car7/IMG_5001.jpeg')"><img src="images/car7/IMG_5001.jpeg" alt=""></div>
+                        <div class="gallery-thumb" onclick="changeImg(this, 'images/car7/IMG_5002.jpeg')"><img src="images/car7/IMG_5002.jpeg" alt=""></div>
+                        <div class="gallery-thumb" onclick="changeImg(this, 'images/car7/IMG_5003.jpeg')"><img src="images/car7/IMG_5003.jpeg" alt=""></div>
+                        <div class="gallery-thumb" onclick="changeImg(this, 'images/car7/IMG_5004.jpeg')"><img src="images/car7/IMG_5004.jpeg" alt=""></div>
+                        <div class="gallery-thumb" onclick="changeImg(this, 'images/car7/IMG_5005.jpeg')"><img src="images/car7/IMG_5005.jpeg" alt=""></div>
+                        <div class="gallery-thumb" onclick="changeImg(this, 'images/car7/IMG_5006.jpeg')"><img src="images/car7/IMG_5006.jpeg" alt=""></div>
+                        <div class="gallery-thumb" onclick="changeImg(this, 'images/car7/IMG_5007.jpeg')"><img src="images/car7/IMG_5007.jpeg" alt=""></div>
+                        <div class="gallery-thumb" onclick="changeImg(this, 'images/car7/IMG_5008.jpeg')"><img src="images/car7/IMG_5008.jpeg" alt=""></div>
+                        <div class="gallery-thumb" onclick="changeImg(this, 'images/car7/IMG_5009.jpeg')"><img src="images/car7/IMG_5009.jpeg" alt=""></div>
+                    </div>
+
+                    <div class="detail-section" style="margin-top:30px;">
+                        <h3>車両スペック</h3>
+                        <table class="spec-table">
+                            <tr><td>メーカー</td><td>光岡自動車</td></tr>
+                            <tr><td>車種</td><td>ビュート（Viewt）</td></tr>
+                            <tr><td>グレード</td><td>なでしこ</td></tr>
+                            <tr><td>型式</td><td>DBA-K13</td></tr>
+                            <tr><td>初度登録</td><td>令和2年8月（2020年8月）</td></tr>
+                            <tr><td>走行距離</td><td>52,975km</td></tr>
+                            <tr><td>排気量</td><td>1,200cc</td></tr>
+                            <tr><td>色</td><td>レッド</td></tr>
+                            <tr><td>ミッション</td><td>FAT（フルオートマ）</td></tr>
+                            <tr><td>駆動</td><td>2WD</td></tr>
+                            <tr><td>燃料</td><td>ガソリン</td></tr>
+                            <tr><td>乗車定員</td><td>5名</td></tr>
+                            <tr><td>ドア数</td><td>5ドア</td></tr>
+                            <tr><td>車検</td><td>令和9年8月25日まで（2027年8月25日）</td></tr>
+                            <tr><td>装備</td><td>エアコン／パワステ／パワーウィンドウ／エアバッグ／社外ナビ／フルセグTV</td></tr>
+                        </table>
+                    </div>
+
+                    <div class="detail-section">
+                        <h3>担当者コメント</h3>
+                        <p style="font-size:15px;line-height:1.9;color:var(--color-text);">
+                            <strong>クラシックなジャガー風デザインで人気の光岡自動車「ビュート」</strong>、女性向け特別仕様グレード「<strong>なでしこ</strong>」が入荷しました。<br><br>
+                            ベース車両は信頼性の高い日産マーチ。<strong>レトロでかわいいルックス</strong>と、現代車ならではの<strong>使い勝手の良さ</strong>を両立した1台です。<br><br>
+                            走行距離は<strong>52,975km</strong>と十分に余裕があり、<strong>車検も令和9年8月まで</strong>残っています。社外ナビ・フルセグTV搭載で、毎日の通勤・お出かけにも快適にお使いいただけます。<br><br>
+                            <strong>「人とは違うデザインの車に乗りたい」</strong>「<strong>レトロカーは気になるけど、メンテナンスや維持費が心配</strong>」というお客様にもおすすめの1台。お気軽にお問い合わせください。
+                        </p>
+                    </div>
+                </div>
+
+                <div class="detail-sidebar">
+                    <div class="price-card">
+                        <span class="price-badge">レトロデザイン</span>
+                        <div class="price-main">ASK</div>
+                        <div class="price-note">お気軽にご相談ください</div>
+                        <div class="quick-specs">
+                            <div class="qs-item"><span class="qs-label">年式</span><span class="qs-value">R2年（2020年）</span></div>
+                            <div class="qs-item"><span class="qs-label">走行</span><span class="qs-value">52,975km</span></div>
+                            <div class="qs-item"><span class="qs-label">排気量</span><span class="qs-value">1,200cc</span></div>
+                            <div class="qs-item"><span class="qs-label">車検</span><span class="qs-value">R9年8月</span></div>
+                        </div>
+                        <a href="tel:0944-87-2465" class="btn btn-primary btn-large" style="display:block;text-align:center;margin-bottom:12px;">📞 電話で問い合わせ</a>
+                        <a href="contact.html" class="btn btn-secondary" style="display:block;text-align:center;">✉️ メールで問い合わせ</a>
+                    </div>
+                    <div class="contact-card">
+                        <h4>📍 宮崎自動車商會</h4>
+                        <p style="font-size:13px;color:var(--color-sub);margin-bottom:10px;">〒831-0015<br>福岡県大川市本木室802-1</p>
+                        <p style="font-size:13px;color:var(--color-sub);">営業時間：9:00〜17:00<br>定休日：土日祝</p>
+                    </div>
+                    <div style="margin-top:15px;"><a href="cars.html" class="btn btn-outline" style="display:block;text-align:center;">← 在庫一覧に戻る</a></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>お気軽にお問い合わせください</h2>
+                <p>ご来店・お電話・メールにて承っております</p>
+                <div class="cta-buttons">
+                    <a href="tel:0944-87-2465" class="btn btn-primary btn-large">📞 0944-87-2465</a>
+                    <a href="contact.html" class="btn btn-secondary btn-large">✉️ メールで問い合わせ</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section"><h3>宮崎自動車商會</h3><p>良質な中古車をお届けします</p></div>
+                <div class="footer-section"><h4>営業時間</h4><p>9:00〜17:00</p><p>定休日：土日祝</p></div>
+                <div class="footer-section"><h4>お問い合わせ</h4><p>📞 0944-87-2465</p><p>✉️ miyazaki.zaimoku2465@gmail.com</p></div>
+                <div class="footer-section"><h4>所在地</h4><p>〒831-0015<br>福岡県大川市本木室802-1</p></div>
+            </div>
+            <div class="footer-bottom"><p>&copy; 2024 宮崎自動車商會 All Rights Reserved.</p></div>
+        </div>
+    </footer>
+    <script>
+        function changeImg(thumb, src) {
+            document.getElementById('mainImg').src = src;
+            document.querySelectorAll('.gallery-thumb').forEach(t => t.classList.remove('active'));
+            thumb.classList.add('active');
+        }
+    </script>
+</body>
+</html>

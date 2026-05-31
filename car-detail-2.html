@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>トヨタ ハイラックス - 宮﨑自動車商會</title>
+    <title>トヨタ ハイラックス - 宮崎自動車商會</title>
     <meta name="description" content="平成2年式 トヨタ ハイラックス。低走行34,207km。ASK。">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
@@ -51,9 +51,9 @@
             <div class="container">
                 <div class="header-content">
                     <div class="logo-section">
-                        <img src="images/logo.jpg" alt="宮﨑自動車商會ロゴ" class="logo-image" style="width:60px;height:60px;object-fit:contain;">
+                        <img src="images/logo.jpg" alt="宮崎自動車商會ロゴ" class="logo-image" style="width:60px;height:60px;object-fit:contain;">
                         <div class="company-name">
-                            <h1>宮﨑自動車商會</h1>
+                            <h1>宮崎自動車商會</h1>
                             <p class="tagline">良質な中古車をお届けします</p>
                         </div>
                     </div>
@@ -74,6 +74,7 @@
                     <li><a href="cars.html" class="active">在庫車両</a></li>
                     <li><a href="sold.html">販売実績</a></li>
                     
+                    <li><a href="about.html">会社情報</a></li>
                     <li><a href="contact.html">お問い合わせ</a></li>
                 </ul>
             </div>
@@ -142,7 +143,7 @@
                         <h3>車両スペック</h3>
                         <table class="spec-table">
                             <tr><td>メーカー</td><td>トヨタ</td></tr>
-                            <tr><td>車種</td><td>ハイラックス デラックス</td></tr>
+                            <tr><td>車種</td><td>ハイラックス</td></tr>
                             <tr><td>年式</td><td>平成2年3月（1990年）</td></tr>
                             <tr><td>走行距離</td><td>34,207km</td></tr>
                             <tr><td>修復歴</td><td>なし</td></tr>
@@ -189,7 +190,7 @@
                         </a>
                     </div>
                     <div class="contact-card">
-                        <h4>📍 宮﨑自動車商會</h4>
+                        <h4>📍 宮崎自動車商會</h4>
                         <p style="font-size:13px;color:var(--color-sub);margin-bottom:10px;">〒831-0015<br>福岡県大川市本木室802-1</p>
                         <p style="font-size:13px;color:var(--color-sub);">営業時間：9:00〜17:00<br>定休日：土日祝</p>
                     </div>
@@ -204,12 +205,20 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-section"><h3>宮﨑自動車商會</h3><p>良質な中古車をお届けします</p></div>
+                <div class="footer-section"><h3>宮崎自動車商會</h3><p>良質な中古車をお届けします</p></div>
                 <div class="footer-section"><h4>営業時間</h4><p>9:00〜17:00</p><p>定休日：土日祝</p></div>
-                <div class="footer-section"><h4>お問い合わせ</h4><p>📞 0944-87-2465</p><p>✉️ <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="7f1216061e051e141651051e161210140a4d4b494a3f18121e1613511c1012">[email&#160;protected]</a></p></div>
-                <div class="footer-section"><h4>所在地</h4><p>〒831-0015<br>福岡県大川市本木室802-1</p></div>
+                <div class="footer-section"><h4>お問い合わせ</h4><p>📞 0944-87-2465</p><p>✉️ miyazaki.zaimoku2465@gmail.com</p></div>
+                <div class="footer-section"><h4>所在地</h4><p>〒831-0015<br>福岡県大川市本木室802-1</p>
             </div>
-            <div class="footer-bottom"><p>&copy; 2024 宮﨑自動車商會 All Rights Reserved.</p></div>
+            <div class="footer-bottom"><p>&copy; 2024 宮崎自動車商會 All Rights Reserved.</p></div>
         </div>
     </footer>
-    <script data-cfasync="false" s
+    <script>
+        function changeImg(thumb, src) {
+            document.getElementById('mainImg').src = src;
+            document.querySelectorAll('.gallery-thumb').forEach(t => t.classList.remove('active'));
+            thumb.classList.add('active');
+        }
+    </script>
+</body>
+</html>
